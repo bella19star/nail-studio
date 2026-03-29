@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAIL STUDIO | Luxury Nail Care</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pink': '#F8E8E8',
+                        'pink-dark': '#E8C8C8',
+                        'beige': '#E8D5C4',
+                        'beige-dark': '#C9B49F',
+                        'brown': '#2B2420',
+                        'brown-dark': '#1A1613',
+                        'cream': '#FFFDF9',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #F8E8E8 0%, #E8D5C4 100%);
+        }
+        .time-slot.selected { background-color: #3D2817; color: white; }
+        .modal-open { overflow: hidden; }
+        .time-slot:hover { background-color: #E8D5C4; }
+        .time-slot.selected { background-color: #1f2937; color: white; }
+        .time-slot.booked { background-color: #f3f4f6; color: #9ca3af; cursor: not-allowed; }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-pink">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-semibold tracking-wider text-brown">NAIL STUDIO</h1>
+                </div>
+                <a href="#booking" class="bg-brown text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-brown-dark transition-colors">
+                    Book Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center pt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-5xl sm:text-6xl font-bold text-gray-900 leading-tight">
+                            Luxury<br/>
+                            <span class="text-gray-600">Nail Care</span>
+                        </h2>
+                        <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+                            Certified nail artist specializing in premium manicures and custom nail art.
+                            Experience the artistry your nails deserve.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#booking" class="bg-gray-900 text-white px-8 py-4 rounded-full text-center font-medium hover:bg-gray-800 transition-colors shadow-lg">
+                            Book Your Appointment
+                        </a>
+                        <a href="#services" class="border border-gray-900 text-gray-900 px-8 py-4 rounded-full text-center font-medium hover:bg-gray-900 hover:text-white transition-colors">
+                            View Services
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-8 pt-4">
+                        <div>
+                            <p class="text-3xl font-bold text-gray-900">500+</p>
+                            <p class="text-sm text-gray-600">Happy Clients</p>
+                        </div>
+                        <div class="w-px h-12 bg-gray-300"></div>
+                        <div>
+                            <p class="text-3xl font-bold text-gray-900">5★</p>
+                            <p class="text-sm text-gray-600">Rated Service</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+                        <img
+                            src="images/f3618d2d3e8639c2c8d58cef6abb8030.jpg"
+                            alt="Master nail artist"
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-200">
+                                <img src="images/f3618d2d3e8639c2c8d58cef6abb8030.jpg" alt="Master" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Master Artist</p>
+                                <p class="text-sm text-gray-600">Certified & Licensed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Master Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative order-2 md:order-1">
+                    <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
+                        <img
+                            src="images/f3618d2d3e8639c2c8d58cef6abb8030.jpg"
+                            alt="Master nail artist portrait"
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-beige p-6 rounded-2xl shadow-xl">
+                        <p class="text-4xl font-bold text-gray-900">8+</p>
+                        <p class="text-sm text-gray-600">Years Experience</p>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Meet Your Master</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Certified and licensed nail artist with a passion for creating beautiful, healthy nails.
+                        I specialize in premium manicures, custom nail art, and nail care that lasts.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Every appointment is a chance to create something unique. I use only premium products
+                        and follow the highest sanitation standards for your safety.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <p class="text-3xl font-bold text-gray-900">500+</p>
+                            <p class="text-sm text-gray-600">Happy Clients</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-gray-900">5★</p>
+                            <p class="text-sm text-gray-600">Average Rating</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900">Our Services</h2>
+                <p class="mt-4 text-lg text-gray-600">Premium nail care tailored to your style</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="group p-8 rounded-2xl bg-pink hover:bg-beige transition-colors duration-300">
+                    <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-6 text-2xl shadow-md">💅</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Classic Manicure</h3>
+                    <p class="text-gray-600">Nail shaping, cuticle care, hand massage, and your choice of regular polish.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="group p-8 rounded-2xl bg-pink hover:bg-beige transition-colors duration-300">
+                    <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-6 text-2xl shadow-md">✨</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Gel Nails</h3>
+                    <p class="text-gray-600">Long-lasting gel polish with LED curing. Chip-free shine for up to 3 weeks.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="group p-8 rounded-2xl bg-pink hover:bg-beige transition-colors duration-300">
+                    <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-6 text-2xl shadow-md">💎</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Acrylic Extensions</h3>
+                    <p class="text-gray-600">Full set acrylic extensions with your desired shape and length.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="group p-8 rounded-2xl bg-pink hover:bg-beige transition-colors duration-300">
+                    <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-6 text-2xl shadow-md">🎨</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Custom Nail Art</h3>
+                    <p class="text-gray-600">Hand-painted designs, ombre, chrome, gems, and custom artwork.</p>
+                </div>
+                <!-- Service 5 -->
+                <div class="group p-8 rounded-2xl bg-pink hover:bg-beige transition-colors duration-300">
+                    <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-6 text-2xl shadow-md">🦶</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Spa Pedicure</h3>
+                    <p class="text-gray-600">Luxurious foot soak, exfoliation, massage, and perfect polish application.</p>
+                </div>
+                <!-- Service 6 -->
+                <div class="group p-8 rounded-2xl bg-pink hover:bg-beige transition-colors duration-300">
+                    <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-6 text-2xl shadow-md">🌸</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">BIAB / Builder Gel</h3>
+                    <p class="text-gray-600">Strengthening builder gel overlay for natural nail growth and protection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-24 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900">Pricing</h2>
+                <p class="mt-4 text-lg text-gray-600">Transparent pricing, exceptional quality</p>
+            </div>
+            <div class="space-y-4">
+                <!-- Price Item 1 -->
+                <div class="flex justify-between items-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Classic Manicure</h3>
+                        <p class="text-sm text-gray-500">Shape, cuticle, massage, polish</p>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">$45+</span>
+                </div>
+                <!-- Price Item 2 -->
+                <div class="flex justify-between items-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Gel Manicure</h3>
+                        <p class="text-sm text-gray-500">Long-lasting LED cured polish</p>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">$65+</span>
+                </div>
+                <!-- Price Item 3 -->
+                <div class="flex justify-between items-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Acrylic Full Set</h3>
+                        <p class="text-sm text-gray-500">Extensions with gel polish</p>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">$85+</span>
+                </div>
+                <!-- Price Item 4 -->
+                <div class="flex justify-between items-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Custom Nail Art</h3>
+                        <p class="text-sm text-gray-500">Hand-painted designs</p>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">$5+/nail</span>
+                </div>
+                <!-- Price Item 5 -->
+                <div class="flex justify-between items-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Spa Pedicure</h3>
+                        <p class="text-sm text-gray-500">Full foot care + gel polish</p>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">$75+</span>
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-8">* Prices may vary based on nail condition and design complexity</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900">Gallery</h2>
+                <p class="mt-4 text-lg text-gray-600">A selection of my recent work</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="aspect-square rounded-2xl overflow-hidden">
+                    <img src="images/149c4248ca98702ed78dabe017840842.jpg" alt="Nail art design" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden">
+                    <img src="images/2f1abf85b13b99f9ebd5326b5d157345.jpg" alt="Manicure session" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden">
+                    <img src="images/4368e1c4896fbb6cd897747297ee5395.jpg" alt="Gel nails" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden">
+                    <img src="images/5ccef9913536902e88e09e891a16b3da.jpg" alt="Nail design" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden">
+                    <img src="images/9083ab6b71d02c28bc90d80ae024f473.jpg" alt="Acrylic nails" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden">
+                    <img src="images/c876e3889b1d2d4d6c348f1bb54136be.jpg" alt="Pedicure" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900">Testimonials</h2>
+                <p class="mt-4 text-lg text-gray-600">What my clients say</p>
+            </div>
+            <div class="space-y-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        "Absolutely the best manicure I've ever had! The attention to detail is incredible,
+                        and my nails lasted perfectly for over 3 weeks. The studio is beautiful and so relaxing.
+                        I'm never going anywhere else!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-beige flex items-center justify-center font-semibold">SM</div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Sarah M.</p>
+                            <p class="text-sm text-gray-500">New York, NY</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        "I came in with a specific design in mind for my wedding, and she exceeded all expectations.
+                        The nail art was absolutely stunning and photographed beautifully. Highly recommend!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-beige flex items-center justify-center font-semibold">EL</div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Emma L.</p>
+                            <p class="text-sm text-gray-500">Brooklyn, NY</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        "Professional, clean, and incredibly talented. The spa pedicure was heaven, and the gel
+                        manicure is still perfect after two weeks. Worth every penny!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-beige flex items-center justify-center font-semibold">JR</div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Jessica R.</p>
+                            <p class="text-sm text-gray-500">Manhattan, NY</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking CTA Section -->
+    <section id="booking" class="py-24 bg-brown">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Ready for Your Dream Nails?</h2>
+            <p class="text-xl text-white/80 mb-10">Book your appointment today and experience luxury nail care</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:+1234567890" class="bg-white text-brown px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-colors">
+                    Call (123) 456-7890
+                </a>
+                <a href="https://instagram.com" class="border-2 border-white text-white px-8 py-4 rounded-full font-medium hover:bg-white hover:text-brown transition-colors">
+                    DM on Instagram
+                </a>
+                <button onclick="openBookingModal()" class="bg-beige text-gray-900 px-8 py-4 rounded-full font-medium hover:bg-beige-dark transition-colors shadow-lg">
+                    Check Availability
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeBookingModal()"></div>
+
+        <!-- Modal Content -->
+        <div class="absolute inset-4 md:inset-10 bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-6 border-b border-gray-200">
+                <h3 class="text-2xl font-bold text-gray-900">Book Your Appointment</h3>
+                <button onclick="closeBookingModal()" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="flex-1 overflow-y-auto p-6">
+                <!-- Step 1: Choose Service -->
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center text-sm">1</span>
+                        Select Service
+                    </h4>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                        <button class="service-btn p-4 rounded-xl border-2 border-gray-200 hover:border-beige transition-colors text-left" onclick="toggleService(this, 'Classic Manicure', 45)">
+                            <p class="font-semibold text-gray-900">Classic Manicure</p>
+                            <p class="text-sm text-gray-500">$45 · 45 min</p>
+                        </button>
+                        <button class="service-btn p-4 rounded-xl border-2 border-gray-200 hover:border-beige transition-colors text-left" onclick="toggleService(this, 'Gel Manicure', 65)">
+                            <p class="font-semibold text-gray-900">Gel Manicure</p>
+                            <p class="text-sm text-gray-500">$65 · 60 min</p>
+                        </button>
+                        <button class="service-btn p-4 rounded-xl border-2 border-gray-200 hover:border-beige transition-colors text-left" onclick="toggleService(this, 'Acrylic Full Set', 85)">
+                            <p class="font-semibold text-gray-900">Acrylic Full Set</p>
+                            <p class="text-sm text-gray-500">$85 · 90 min</p>
+                        </button>
+                        <button class="service-btn p-4 rounded-xl border-2 border-gray-200 hover:border-beige transition-colors text-left" onclick="toggleService(this, 'Spa Pedicure', 75)">
+                            <p class="font-semibold text-gray-900">Spa Pedicure</p>
+                            <p class="text-sm text-gray-500">$75 · 60 min</p>
+                        </button>
+                        <button class="service-btn p-4 rounded-xl border-2 border-gray-200 hover:border-beige transition-colors text-left" onclick="toggleService(this, 'Nail Art', 5)">
+                            <p class="font-semibold text-gray-900">Nail Art</p>
+                            <p class="text-sm text-gray-500">$5+/nail · +30 min</p>
+                        </button>
+                        <button class="service-btn p-4 rounded-xl border-2 border-gray-200 hover:border-beige transition-colors text-left" onclick="toggleService(this, 'BIAB Builder Gel', 70)">
+                            <p class="font-semibold text-gray-900">BIAB Builder Gel</p>
+                            <p class="text-sm text-gray-500">$70 · 75 min</p>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Choose Date -->
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center text-sm">2</span>
+                        Select Date
+                    </h4>
+                    <div class="flex gap-3 overflow-x-auto pb-4" id="dateContainer">
+                        <!-- Dates will be generated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Step 3: Choose Time -->
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center text-sm">3</span>
+                        Select Time
+                    </h4>
+                    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3" id="timeContainer">
+                        <!-- Time slots will be generated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Step 4: Contact Info -->
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center text-sm">4</span>
+                        Your Information
+                    </h4>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <input type="text" id="firstName" placeholder="First Name" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none">
+                        <input type="text" id="lastName" placeholder="Last Name" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none">
+                        <input type="email" id="email" placeholder="Email" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none">
+                        <input type="tel" id="phone" placeholder="Phone" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-6 border-t border-gray-200 bg-gray-50">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div id="bookingSummary" class="text-sm text-gray-600">
+                        Select a service to continue
+                    </div>
+                    <button id="confirmBtn" onclick="confirmBooking()" class="w-full sm:w-auto bg-gray-900 text-white px-8 py-4 rounded-full font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        Confirm Booking
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeSuccessModal()"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center shadow-2xl">
+                <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Booking Confirmed!</h3>
+                <p class="text-gray-600 mb-6" id="successMessage">We've sent a confirmation to your email.</p>
+                <button onclick="closeSuccessModal()" class="w-full bg-gray-900 text-white px-8 py-4 rounded-full font-medium hover:bg-gray-800 transition-colors">
+                    Done
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-brown py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">NAIL STUDIO</h3>
+                    <p class="text-white/70">Premium nail care services in the heart of New York.</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Contact</h4>
+                    <ul class="space-y-2 text-white/70">
+                        <li>123 Beauty Lane, New York, NY 10001</li>
+                        <li>(123) 456-7890</li>
+                        <li>hello@nailstudio.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Follow</h4>
+                    <div class="flex gap-4">
+                        <a href="https://instagram.com" class="text-white/70 hover:text-white transition-colors">Instagram</a>
+                        <a href="https://facebook.com" class="text-white/70 hover:text-white transition-colors">Facebook</a>
+                    </div>
+                    <p class="mt-6 text-sm text-white/50">✓ Licensed & Insured</p>
+                </div>
+            </div>
+            <div class="border-t border-white/20 mt-12 pt-8 text-center text-white/50 text-sm">
+                <p>&copy; 2026 NAIL STUDIO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Booking state
+        let selectedServices = []; // Array of {name, price, element}
+        let selectedDate = null;
+        let selectedTime = null;
+
+        // Generate next 14 days
+        function generateDates() {
+            const container = document.getElementById('dateContainer');
+            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const today = new Date();
+
+            for (let i = 0; i < 14; i++) {
+                const date = new Date(today);
+                date.setDate(date.getDate() + i);
+
+                const dayEl = document.createElement('button');
+                dayEl.className = `date-btn flex-shrink-0 w-20 h-24 rounded-2xl border-2 border-gray-200 hover:border-beige transition-colors flex flex-col items-center justify-center ${i === 0 ? 'selected-date' : ''}`;
+                dayEl.onclick = () => selectDate(dayEl, date);
+                dayEl.innerHTML = `
+                    <span class="text-xs text-gray-500">${days[date.getDay()]}</span>
+                    <span class="text-xl font-bold text-gray-900">${date.getDate()}</span>
+                    <span class="text-xs text-gray-500">${months[date.getMonth()]}</span>
+                `;
+                container.appendChild(dayEl);
+
+                if (i === 0) selectDate(dayEl, date);
+            }
+        }
+
+        // Generate time slots
+        function generateTimeSlots() {
+            const container = document.getElementById('timeContainer');
+            const times = [
+                '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM',
+                '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
+                '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
+                '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM'
+            ];
+
+            // Simulate some booked slots
+            const bookedSlots = ['10:00 AM', '12:30 PM', '3:00 PM'];
+
+            times.forEach(time => {
+                const slotEl = document.createElement('button');
+                const isBooked = bookedSlots.includes(time);
+                slotEl.className = `time-slot px-4 py-3 rounded-xl border-2 text-sm font-medium transition-colors ${
+                    isBooked ? 'booked border-gray-200' : 'border-gray-200 hover:border-beige'
+                }`;
+                slotEl.textContent = time;
+                if (!isBooked) {
+                    slotEl.onclick = () => selectTime(slotEl, time);
+                }
+                container.appendChild(slotEl);
+            });
+        }
+
+        function toggleService(el, name, price) {
+            const existingIndex = selectedServices.findIndex(s => s.name === name);
+
+            if (existingIndex > -1) {
+                // Deselect service
+                selectedServices.splice(existingIndex, 1);
+                el.classList.remove('border-beige', 'bg-pink');
+            } else {
+                // Select service (max 3)
+                if (selectedServices.length >= 3) {
+                    alert('You can select up to 3 services per appointment');
+                    return;
+                }
+                selectedServices.push({ name, price, element: el });
+                el.classList.add('border-beige', 'bg-pink');
+            }
+            updateSummary();
+        }
+
+        function selectDate(el, date) {
+            document.querySelectorAll('.date-btn').forEach(btn => {
+                btn.classList.remove('border-beige', 'bg-blush');
+            });
+            el.classList.add('border-beige', 'bg-blush');
+            selectedDate = date;
+            generateTimeSlots();
+            updateSummary();
+        }
+
+        function selectTime(el, time) {
+            document.querySelectorAll('.time-slot').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            el.classList.add('selected');
+            selectedTime = time;
+            updateSummary();
+        }
+
+        function updateSummary() {
+            const summary = document.getElementById('bookingSummary');
+            const confirmBtn = document.getElementById('confirmBtn');
+
+            let servicesList = [];
+            let totalPrice = 0;
+
+            selectedServices.forEach(s => {
+                servicesList.push(`${s.name} ($${s.price}+)`);
+                totalPrice += s.price;
+            });
+
+            let text = [];
+            if (servicesList.length > 0) {
+                text.push(`<div class="font-semibold text-gray-900">Services:</div>`);
+                text.push(`<div>${servicesList.join(', ')}</div>`);
+                text.push(`<div class="font-semibold text-gray-900">Total: $${totalPrice}+</div>`);
+            }
+            if (selectedDate) {
+                const dateStr = selectedDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+                text.push(`<div>${dateStr}</div>`);
+            }
+            if (selectedTime) {
+                text.push(`<div>${selectedTime}</div>`);
+            }
+
+            if (text.length > 0) {
+                summary.innerHTML = text.join(' <span class="text-gray-300">|</span> ');
+            } else {
+                summary.textContent = 'Select services to continue';
+            }
+
+            confirmBtn.disabled = !(selectedServices.length > 0 && selectedDate && selectedTime);
+        }
+
+        function openBookingModal() {
+            document.getElementById('bookingModal').classList.remove('hidden');
+            document.body.classList.add('modal-open');
+            generateDates();
+            generateTimeSlots();
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+            document.body.classList.remove('modal-open');
+        }
+
+        function confirmBooking() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            if (!firstName || !lastName || !email || !phone) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            if (selectedServices.length === 0) {
+                alert('Please select at least one service');
+                return;
+            }
+
+            const servicesList = selectedServices.map(s => s.name).join(', ');
+
+            closeBookingModal();
+            document.getElementById('successMessage').innerHTML =
+                `See you on <b>${selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })} at ${selectedTime}</b><br>for your <b>${servicesList}</b>!`;
+            document.getElementById('successModal').classList.remove('hidden');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+
+        // Close modals on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeBookingModal();
+                closeSuccessModal();
+            }
+        });
+    </script>
+</body>
+</html>
